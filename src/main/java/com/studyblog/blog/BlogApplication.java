@@ -1,13 +1,15 @@
-package com.studyblog.blog.demo;
+package com.studyblog.blog;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class BlogApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(BlogApplication.class, args);
     }
+
 
 }
