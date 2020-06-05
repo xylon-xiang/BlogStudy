@@ -243,24 +243,24 @@ rewrite
 
 ### 文章表 article
 
-| name              | type | length | key  | !null | description |
-| ----------------- | ---- | ------ | ---- | ----- | ----------- |
-| id                |      |        |      |       | 主键，自增  |
-| articleId         |      |        |      |       |             |
-| author            |      |        |      |       |             |
-| originalAuthor    |      |        |      |       |             |
-| articleTitle      |      |        |      |       |             |
-| articleContent    |      |        |      |       |             |
-| atrticleTags      |      |        |      |       |             |
-| articleType       |      |        |      |       |             |
-| articleCategories |      |        |      |       |             |
-| publishData       |      |        |      |       |             |
-| updateData        |      |        |      |       |             |
-| articleUrl        |      |        |      |       |             |
-| articleTabloid    |      |        |      |       |             |
-| likes             |      |        |      |       |             |
-| lastArticleId     |      |        |      |       |             |
-| nextArticleId     |      |        |      |       |             |
+| name              | type    | length | key  | !null | description |
+| ----------------- | ------- | ------ | ---- | ----- | ----------- |
+| id                | long    |        |      |       | 主键，自增  |
+| articleId         | varchar |        |      |       |             |
+| author            |         |        |      |       |             |
+| originalAuthor    |         |        |      |       |             |
+| articleTitle      |         |        |      |       |             |
+| articleContent    |         |        |      |       |             |
+| atrticleTags      |         |        |      |       |             |
+| articleType       |         |        |      |       |             |
+| articleCategories |         |        |      |       |             |
+| publishData       |         |        |      |       |             |
+| updateData        |         |        |      |       |             |
+| articleUrl        |         |        |      |       |             |
+| articleTabloid    |         |        |      |       |             |
+| likes             |         |        |      |       |             |
+| lastArticleId     |         |        |      |       |             |
+| nextArticleId     |         |        |      |       |             |
 
 
 
