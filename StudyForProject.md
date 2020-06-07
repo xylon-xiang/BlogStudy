@@ -1,3 +1,5 @@
+[toc]
+
 # 功能需求
 
 主页功能：
@@ -458,6 +460,8 @@ desc	降序
 
 ## Service
 
+***Service层为具体的业务层。需要将每个函数的功能厘清***
+
 本项目使用的为service+serviceImpl实现模式。
 
 > service+serviceImpl的模式最初是为了适应不同的数据库，解决移植性问题。将service类拆分为service接口+serviceImpl类实现。
@@ -475,37 +479,13 @@ public class ArchiveServiceImpl implements ArchiveService{
     
     @Override
     public DataMap findArchiveNameAndArticleNum(){
-        List<String> archives = archiveMapper.findArchives();
-        JSONArray archivesJsonArray = new JSONArray();
-        
-        JSONObject archiveJson;
-        
-        TimeUtil timeUtil = new TimeUtil();
-        
-        for(String archiveName : archives){
-            archiveJson = new JSONObjest();
-            archiveJson.put("archiveName", archiveName);
-            
-            archiveName = timeUtil.timeYearToWhippletree(archiveName);
-            
-            archiveJson.put("archiveArticleNum", articleService.coutArticleArchiveByArchive(archiveName));
-            
-            archivesJsonArray.add(archiveJson);
-        }
-        
-        JSONObject returnJson = new JSONObject();
-        returnJson.put("result", archivesJsonArray);
-        
-        return DataMap.success().setData(returnJson);
+        //specific codes
     }
     
     
     @Override
     public void addArchiveName(String archiveName){
-        int archiveNameIsExist = archiveMapper.findArchiveNameByArchiveName(archiveName);
-        
-        if(archiveNameIsExist == 0)
-            archiveMapper.save(archiveName);
+        //specific codes
     }
 }
 ```
@@ -550,23 +530,44 @@ public class ArchiveServiceImpl implements ArchiveService{
 
 
 
+```java
+@Override
+public DataMap findArchiveNameAndArticleNum(){
+    List<String> archives = archiveMapper.findArchives();
+        JSONArray archivesJsonArray = new JSONArray();
+        
+        JSONObject archiveJson;
+        
+        TimeUtil timeUtil = new TimeUtil();
+        
+        for(String archiveName : archives){
+            archiveJson = new JSONObjest();
+            archiveJson.put("archiveName", archiveName);
+            
+            archiveName = timeUtil.timeYearToWhippletree(archiveName);
+            
+            archiveJson.put("archiveArticleNum", articleService.coutArticleArchiveByArchive(archiveName));
+            
+            archivesJsonArray.add(archiveJson);
+        }
+        
+        JSONObject returnJson = new JSONObject();
+        returnJson.put("result", archivesJsonArray);
+        
+        return DataMap.success().setData(returnJson);
+}
+```
+
+```flow
+end=>end: sss
+
+archives=>operation: archives(List<String>)
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+archives->end
+```
 
 
 
