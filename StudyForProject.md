@@ -322,6 +322,29 @@ rewrite
 
 # 具体代码分析
 
+## Application
+
+```java
+@SpringBootApplication
+@EnableTransactionManagement
+@EnableWebMvc
+@EnableScheduling
+public class MyBlogApplication{
+    
+    public static void main(String[] args){
+        SpringApplication.run(MyBlogApplication.class, args);
+    }
+}
+```
+
+
+
+
+
+
+
+
+
 ## model
 
 ```java
@@ -376,7 +399,7 @@ public class ArticleLikesRecord{
 @Repository
 public interface ArchiveMapper{
     
-    @Select("select achiveName from archives order bt id desc")
+    @Select("select achiveName from archives order by id desc")
     List<String> findArchives();
     
     @Insert("insert into archives(archivesName) values(#{archiveName})")
@@ -618,3 +641,16 @@ public class ArchivesControl{
 }
 ```
 
+通过`@PostMapping("/")` `@GetMapping("/")` `@PutMapping("/")`  `@DeleteMapping("/")` 提供对Restful风格的支持。
+
+
+
+```java
+@GetMapping("/toLogin")
+@ResponseBody
+public void toLogin(HeepServletRequest request){
+    //specific codes
+}
+```
+
+`@ResponseBody`的作用是将Java对象转为Json格式。
